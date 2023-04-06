@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>发布留言</title>
+  </head>
+  <body>
+    <form action="/publish" method="post" enctype="application/x-www-form-urlencoded">
+      <fieldset>
+        <legend>发布留言</legend>
+        <div>
+          <label for="name">姓名</label>
+          <input type="text" name="name" id="name" required />
+        </div>
+        <div>
+          <label for="content">留言内容</label>
+          <textarea name="content" id="content" cols="30" rows="10"></textarea>
+        </div>
+        <button type="submit">发布内容</button>
+        <button type="reset">重置内容</button>
+      </fieldset>
+    </form>
+  </body>
+</html>

@@ -4,16 +4,27 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%= title%></title>
+    <title>留言列表</title>
   </head>
   <body>
-    <div> <%=content%> </div>
-    <% if(show) { %>
-    <ul>
-      <%users.forEach((user)=> {%>
-      <li><%=user.id%> - <%= user.name%></li>
-      <%})%>
-    </ul>
+    <a href="/publish">发布留言</a>
+    <%if(messages.length === 0) {%>
+    <p>当前没有留言内容</p>
+    <%}else{%>
+    <table>
+      <tr>
+        <th>留言时间</th>
+        <th>留言人</th>
+        <th>留言内容</th>
+      </tr>
+      <% messages.forEach((message) => { %>
+      <tr>
+        <td><%= message.time%></td>
+        <td><%= message.name%></td>
+        <td><%= message.content%></td>
+      </tr>
+      <% }) %>
+    </table>
     <%}%>
   </body>
 </html>
