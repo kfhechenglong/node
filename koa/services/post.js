@@ -2,7 +2,7 @@
  * @Author: hechenglong kfhechenglong@126.com
  * @Date: 2023-04-07 15:46:57
  * @LastEditors: hechenglong kfhechenglong@126.com
- * @LastEditTime: 2023-04-10 11:35:50
+ * @LastEditTime: 2023-04-11 10:54:12
  * @FilePath: \node\koa\services\post.js
  * @Description: 文章业务
  */
@@ -13,7 +13,7 @@ bluebird.promisifyAll(fs)
 // 保存文章数据
 const posts = []
 // 文章id值
-const postId = 1
+let postId = 1
 
 /**
  * @param {*} title

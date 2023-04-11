@@ -1,0 +1,25 @@
+<!--
+ * @Author: hechenglong kfhechenglong@126.com
+ * @Date: 2023-04-07 15:48:32
+ * @LastEditors: hechenglong kfhechenglong@126.com
+ * @LastEditTime: 2023-04-10 18:25:59
+ * @FilePath: \node\koa\templates\publish.ejs
+ * @Description: 发布文章
+-->
+<form action="/publish" method="post">
+  <fieldset>
+    <legend>发布文章</legend>
+    <div>
+      <label for="title">文章标题</label>
+      <input type="text" name="title" id="title" required />
+    </div>
+    <div>
+      <label for="content">文章内容</label>
+      <textarea name="content" required id="content" cols="30" rows="10"></textarea>
+    </div>
+    <div>
+      <button type="submit">发布</button>
+      <button type="reset">重置</button>
+    </div>
+  </fieldset>
+</form>

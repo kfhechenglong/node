@@ -2,7 +2,7 @@
  * @Author: hechenglong kfhechenglong@126.com
  * @Date: 2023-04-07 15:46:05
  * @LastEditors: hechenglong kfhechenglong@126.com
- * @LastEditTime: 2023-04-10 15:01:27
+ * @LastEditTime: 2023-04-10 18:36:14
  * @FilePath: \node\koa\routes\site.js
  * @Description:
  */
@@ -20,3 +20,5 @@ router.get('/', async (ctx) => {
     list: list
   })
 })
+
+module.exports = router

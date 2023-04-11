@@ -1,0 +1,19 @@
+<form action="/update/<%=post.id%>" method="post">
+  <fieldset>
+    <legend>编辑文章</legend>
+    <div>
+      <label for="title">文章标题</label>
+      <input type="text" value="<%=post.title%>" name="title" id="title" />
+    </div>
+    <div>
+      <label for="content">文章内容</label>
+      <textarea name="content" id="content" cols="30" rows="10">
+        <%= post.content%>
+      </textarea>
+    </div>
+    <div>
+      <button type="submit">发布</button>
+      <button type="reset">重置</button>
+    </div>
+  </fieldset>
+</form>

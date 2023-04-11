@@ -3,6 +3,7 @@ const userService = require('./../services/user')
 const router = new Router()
 
 router.get('/login', async (ctx) => {
+  console.log(22222222)
   await ctx.render('login')
 })
 

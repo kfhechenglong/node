@@ -2,7 +2,7 @@
  * @Author: hechenglong kfhechenglong@126.com
  * @Date: 2023-04-07 15:48:01
  * @LastEditors: hechenglong kfhechenglong@126.com
- * @LastEditTime: 2023-04-10 17:21:23
+ * @LastEditTime: 2023-04-11 10:57:18
  * @FilePath: \node\koa\templates\index.ejs
  * @Description: 文章列表页面
 -->
@@ -23,14 +23,14 @@
   <tr>
     <td><%=item.id%></td>
     <td>
-      <a href="/post/<%=item.id%>"><% =item.tit %></a>
+      <a href="/post/<%=item.id%>"><%=item.title %></a>
     </td>
-    <td> <% =item.time %> </td>
+    <td> <%=item.time %> </td>
     <%if (logged) {%>
     <td>
-      <a href="/update/<%item.id%>">编辑</a>
+      <a href="/update/<%=item.id%>">编辑</a>
       <a
-        href="/delete/<%item.id%>"
+        href="/delete/<%=item.id%>"
         onclick="return confirm
       ('确认删除吗？')"
         >删除</a

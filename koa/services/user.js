@@ -2,10 +2,9 @@
  * @Author: hechenglong kfhechenglong@126.com
  * @Date: 2023-04-07 15:47:35
  * @LastEditors: hechenglong kfhechenglong@126.com
- * @LastEditTime: 2023-04-10 17:28:20
+ * @LastEditTime: 2023-04-11 11:02:00
  * @FilePath: \node\koa\services\user.js
- * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
- */
+ * @Description: 用户登录
 const user = {
   admin: 123456
 }

@@ -1,4 +1,19 @@
+/*
+ * @Author: hechenglong kfhechenglong@126.com
+ * @Date: 2023-04-06 18:26:26
+ * @LastEditors: hechenglong kfhechenglong@126.com
+ * @LastEditTime: 2023-04-11 10:49:18
+ * @FilePath: \node\koa\index.js
+ * @Description: 入口文件
+ */
 const Koa = require('koa')
+const render = require('koa-ejs')
+const bodyParser = require('koa-bodyparser')
+const auth = require('./middlewares/auth')
+// 路由
+const siteRoute = require('./routes/site')
+const userRoute = require('./routes/user')
+const postRoute = require('./routes/post')
 const app = new Koa()
 app.proxy = true
 // 设置签名cookie
@@ -6,44 +21,18 @@ app.keys = ['signedKey']
 
 // 定义中间件
 
-async function middleware1(ctx, next) {
-  console.log('中间件middleware1被调用--开始')
-  await next()
-  console.log('中间件middleware1被调用--结束')
-}
-async function logger(ctx, next) {
-  const startTime = Date.now()
-  await next()
-  console.log(Date.now() - startTime)
-}
 // 使用中间件
-app.use(logger)
-app.use(middleware1)
+app.use(bodyParser())
+app.use(auth)
 
-app.use(async (cxt) => {
-  console.log('router in', cxt.path)
-  cxt.set('x-version', '1.0.0')
-  // 设置cookies
-  cxt.cookies.set('logged', 1, {
-    signed: true,
-    httpOnly: true,
-    maxAge: 3600 * 1000 * 24
-  })
-  // 获取cookies
-  const logged = cxt.cookies.get('logged', {
-    signed: true
-  })
-  cxt.body = {
-    method: cxt.method,
-    path: cxt.path,
-    url: cxt.url,
-    query: cxt.query,
-    // headers: cxt.headers,
-    ip: cxt.ip,
-    cookies: logged
-  }
+render(app, {
+  root: './templates',
+  layout: 'main',
+  viewExt: 'ejs'
 })
-
+app.use(siteRoute.routes()).use(siteRoute.allowedMethods())
+app.use(userRoute.routes()).use(userRoute.allowedMethods())
+app.use(postRoute.routes()).use(postRoute.allowedMethods())
 app.listen(3001, () => {
   console.log('listen on 3001')
 })
