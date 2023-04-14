@@ -35,4 +35,5 @@ module.exports = (sequelize) => {
   Comment.afterDestroy(async (comment) => {
     await User.increment({ commentCount: -1 }, { where: { id: comment.userId } })
   })
+  return Comment
 }
