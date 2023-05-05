@@ -2,13 +2,13 @@
  * @Author: hechenglong kfhechenglong@126.com
  * @Date: 2023-04-12 17:18:45
  * @LastEditors: hechenglong kfhechenglong@126.com
- * @LastEditTime: 2023-04-13 10:44:12
+ * @LastEditTime: 2023-05-05 17:18:14
  * @FilePath: \node\demo\models\weibo.js
  * @Description:
  */
 const { Model, DataTypes } = require('sequelize')
 module.exports = (sequelize) => {
-  const User = sequelize.import('./user.js')
+  const User = require('./user.js')(sequelize)
   class Weibo extends Model {}
 
   Weibo.init(

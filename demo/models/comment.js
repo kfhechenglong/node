@@ -1,8 +1,7 @@
 const { Model, DataTypes } = require('sequelize')
-
 module.exports = (sequelize) => {
-  const Weibo = sequelize.import('./weibo.js')
-  const User = sequelize.import('./user.js')
+  const Weibo = require('./weibo.js')(sequelize)
+  const User = require('./user.js')(sequelize)
   class Comment extends Model {}
 
   Comment.init(
